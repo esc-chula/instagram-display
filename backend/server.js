@@ -5,17 +5,23 @@ const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 const path = require("path");
+const dotenv = require("dotenv");
 const Queue = require("./models/Queue");
+
+dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 // Connect MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/ig_queue", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI, // Use the connection URL from .env file
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 app.use(cors());
 app.use(express.json());
@@ -63,4 +69,6 @@ io.on("connection", (socket) => {
   console.log("Client connected");
 });
 
-server.listen(3000, () => console.log("Server running on http://localhost:3000"));
+server.listen(3000, () =>
+  console.log("Server running on http://localhost:3000")
+);
