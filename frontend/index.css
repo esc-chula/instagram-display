@@ -1,0 +1,87 @@
+body {
+  font-family: 'Manrope', Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  background-color: #393043;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  font-size: 24px; /* Make all text larger */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%; /* Increase width */
+  max-width: 600px; /* Make it wider */
+  padding: 20px; /* Add padding inside */
+  border-radius: 40px; /* Bigger rounded corners */
+  background-color: #eeeefe;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6); /* Bigger shadow */
+}
+
+input, button, textarea {
+  width: 90%; /* Increase width */
+  max-width: 500px; /* Make form elements wider */
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 22px; /* Make text bigger */
+  display: block;
+  margin: 15px auto;
+  padding: 15px 15px; /* Bigger padding */
+  border: 2px solid #ccc; /* Thicker border */
+  border-radius: 40px; /* Bigger rounded corners */
+  background-color: #c2c2da;
+}
+
+textarea {
+  resize: none; /* Allow only vertical resizing */
+  min-height: 100px; /* Bigger text area */
+}
+
+button[type="submit"] {
+  width: 30%;
+  max-width: 150px;
+  font-size: 22px; /* Make button text larger */
+  color: black;
+  background-color: #afdfd3;
+  padding: 15px; /* Bigger button */
+  border-radius: 40px; /* Bigger rounded corners */
+}
+
+button[type="submit"]:hover {
+  background-color: #ffd2e1;
+  transform: scale(1.1); /* Increase hover effect */
+}
+
+/* Modal styling - Bigger modal */
+.modal {
+  display: none;
+  position: absolute;
+  width: 90%; /* Increase width */
+  max-width: 500px; /* Make it larger */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fefefe;
+  color: black;
+  padding: 0px; /* More padding inside */
+  border-radius: 15px;
+  text-align: center;
+  font-size: 24px; /* Larger text */
+  pointer-events: auto;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Animation to smoothly show the modal */
+@keyframes fadeInUp {
+  0% {
+    transform: translate(-50%, 15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
